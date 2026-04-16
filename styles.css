@@ -1138,8 +1138,26 @@ button { border: none; outline: none; cursor: pointer; font-family: inherit; }
         box-shadow: 0 6px 20px rgba(212, 175, 55, 0.6);
     }
 
-    /* Hide special link in mobile menu */
-    .nav-menu .nav-link-special { display: none !important; }
+    /* Keep special link in mobile menu but re-style for dark background */
+    .nav-menu .nav-link-special {
+        display: inline-flex !important;
+        background: var(--gradient-gold) !important;
+        color: var(--dark-brown) !important;
+        padding: 12px 30px !important;
+        border-radius: 50px !important;
+        gap: 10px !important;
+        box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4) !important;
+    }
+
+    .nav-menu .nav-link-special span {
+        display: inline !important;
+    }
+
+    .nav-menu .nav-link-special:hover {
+        background: linear-gradient(135deg, #F4E4C1 0%, #D4AF37 100%) !important;
+        transform: translateY(-2px) !important;
+        box-shadow: 0 8px 25px rgba(212, 175, 55, 0.6) !important;
+    }
 
     /* Nav menu */
     .nav-menu {

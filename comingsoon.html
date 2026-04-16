@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coming Soon - Lisha & Kausik</title>
+    <link rel="icon" type="image/png" href="icon.png">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:wght@300;400;600;700&family=Playfair+Display:wght@400;700;900&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary-gold: #D4AF37;
+            --dark-gold: #B8960F;
+            --light-gold: #F4E4C1;
+            --primary-red: #8B0000;
+            --light-red: #DC143C;
+            --cream: #FFF8F0;
+            --light-cream: #FFFCF7;
+            --dark-brown: #3E2723;
+            --white: #FFFFFF;
+            --black: #1A1A1A;
+            --grey: #757575;
+
+            --gradient-gold: linear-gradient(135deg, #D4AF37 0%, #F4E4C1 100%);
+            --gradient-red: linear-gradient(135deg, #8B0000 0%, #DC143C 100%);
+
+            --font-heading: 'Playfair Display', serif;
+            --font-script: 'Alex Brush', cursive;
+            --font-elegant: 'Cinzel', serif;
+            --font-body: 'Cormorant Garamond', serif;
+            --font-modern: 'Montserrat', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: linear-gradient(135deg, #1a0000 0%, #3E2723 50%, #1a0000 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Background pattern */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23D4AF37' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Floating hearts */
+        .floating-elements {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .floating-heart {
+            position: absolute;
+            bottom: -50px;
+            font-size: 1.5rem;
+            color: var(--primary-gold);
+            opacity: 0.15;
+            animation: floatUp 12s linear infinite;
+        }
+
+        @keyframes floatUp {
+            0%   { bottom: -50px; transform: translateX(0) rotate(0deg); opacity: 0; }
+            10%  { opacity: 0.15; }
+            90%  { opacity: 0.15; }
+            100% { bottom: 110%; transform: translateX(80px) rotate(360deg); opacity: 0; }
+        }
+
+        /* Main card */
+        .coming-soon-card {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            padding: 55px 50px;
+            max-width: 620px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            border: 2px solid rgba(212, 175, 55, 0.3);
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+            animation: fadeInUp 1s ease;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Couple names */
+        .couple-names {
+            font-family: var(--font-script);
+            font-size: 3.5rem;
+            color: var(--primary-gold);
+            margin-bottom: 5px;
+            text-shadow: 0 2px 10px rgba(212, 175, 55, 0.3);
+            line-height: 1.2;
+        }
+
+        .couple-date {
+            font-family: var(--font-elegant);
+            font-size: 0.82rem;
+            letter-spacing: 3px;
+            color: rgba(212, 175, 55, 0.7);
+            margin-bottom: 30px;
+            text-transform: uppercase;
+        }
+
+        /* Gold divider */
+        .gold-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .gold-divider .line {
+            width: 60px;
+            height: 1px;
+            background: var(--primary-gold);
+            opacity: 0.5;
+        }
+
+        .gold-divider i {
+            color: var(--primary-gold);
+            font-size: 1rem;
+            animation: heartBeat 2s ease infinite;
+        }
+
+        @keyframes heartBeat {
+            0%, 100% { transform: scale(1); }
+            25% { transform: scale(1.2); }
+            50% { transform: scale(1); }
+        }
+
+        /* Hourglass */
+        .hourglass-wrap {
+            width: 85px;
+            height: 85px;
+            margin: 0 auto 25px;
+            border-radius: 50%;
+            background: rgba(212, 175, 55, 0.1);
+            border: 2px solid rgba(212, 175, 55, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hourglass-wrap i {
+            font-size: 2.3rem;
+            color: var(--primary-gold);
+            animation: spin 4s linear infinite;
+        }
+
+        @keyframes spin {
+            0%   { transform: rotate(0deg); }
+            45%  { transform: rotate(0deg); }
+            50%  { transform: rotate(180deg); }
+            95%  { transform: rotate(180deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Coming soon text */
+        .coming-soon-title {
+            font-family: var(--font-heading);
+            font-size: 3rem;
+            color: var(--white);
+            margin-bottom: 12px;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .coming-soon-title span {
+            color: var(--primary-gold);
+        }
+
+        .coming-soon-subtitle {
+            font-family: var(--font-elegant);
+            font-size: 0.85rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 22px;
+        }
+
+        /* Description */
+        .coming-soon-desc {
+            font-family: var(--font-body);
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.75);
+            line-height: 1.8;
+            margin-bottom: 35px;
+            max-width: 430px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .coming-soon-desc strong {
+            color: var(--primary-gold);
+        }
+
+        /* Back button */
+        .btn-back {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 16px 40px;
+            background: var(--gradient-gold);
+            color: var(--dark-brown);
+            font-family: var(--font-elegant);
+            font-size: 0.95rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(212, 175, 55, 0.35);
+        }
+
+        .btn-back:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.55);
+        }
+
+        .btn-back i {
+            font-size: 1rem;
+        }
+
+        /* ==================== RESPONSIVE ==================== */
+
+        @media screen and (max-width: 600px) {
+            body {
+                padding: 15px;
+                align-items: flex-start;
+                padding-top: 30px;
+                padding-bottom: 30px;
+            }
+
+            .coming-soon-card {
+                padding: 40px 22px;
+                border-radius: 22px;
+            }
+
+            .couple-names {
+                font-size: 2.8rem;
+            }
+
+            .couple-date {
+                font-size: 0.72rem;
+                letter-spacing: 2px;
+            }
+
+            .hourglass-wrap {
+                width: 72px;
+                height: 72px;
+            }
+
+            .hourglass-wrap i {
+                font-size: 1.9rem;
+            }
+
+            .coming-soon-title {
+                font-size: 2.3rem;
+            }
+
+            .coming-soon-subtitle {
+                font-size: 0.75rem;
+                letter-spacing: 2px;
+            }
+
+            .coming-soon-desc {
+                font-size: 1.05rem;
+            }
+
+            .btn-back {
+                padding: 14px 30px;
+                font-size: 0.85rem;
+            }
+
+            .gold-divider .line {
+                width: 40px;
+            }
+        }
+
+        @media screen and (max-width: 380px) {
+            .couple-names {
+                font-size: 2.3rem;
+            }
+
+            .coming-soon-title {
+                font-size: 1.9rem;
+            }
+
+            .coming-soon-desc {
+                font-size: 1rem;
+            }
+
+            .coming-soon-card {
+                padding: 35px 18px;
+            }
+        }
+
+        @media screen and (max-height: 600px) and (orientation: landscape) {
+            body {
+                align-items: flex-start;
+                padding-top: 20px;
+                padding-bottom: 20px;
+            }
+
+            .coming-soon-card {
+                padding: 30px 40px;
+            }
+
+            .hourglass-wrap {
+                width: 60px;
+                height: 60px;
+                margin-bottom: 15px;
+            }
+
+            .hourglass-wrap i {
+                font-size: 1.6rem;
+            }
+
+            .couple-names {
+                font-size: 2.5rem;
+            }
+
+            .coming-soon-title {
+                font-size: 2rem;
+                margin-bottom: 8px;
+            }
+
+            .coming-soon-desc {
+                margin-bottom: 20px;
+                font-size: 1rem;
+            }
+
+            .gold-divider {
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Floating Hearts -->
+<div class="floating-elements">
+    <div class="floating-heart" style="left: 5%; animation-delay: 0s;"><i class="fas fa-heart"></i></div>
+    <div class="floating-heart" style="left: 15%; animation-delay: 3s;"><i class="fas fa-heart"></i></div>
+    <div class="floating-heart" style="left: 30%; animation-delay: 6s;"><i class="fas fa-heart"></i></div>
+    <div class="floating-heart" style="left: 50%; animation-delay: 1s;"><i class="fas fa-heart"></i></div>
+    <div class="floating-heart" style="left: 65%; animation-delay: 4s;"><i class="fas fa-heart"></i></div>
+    <div class="floating-heart" style="left: 80%; animation-delay: 7s;"><i class="fas fa-heart"></i></div>
+    <div class="floating-heart" style="left: 92%; animation-delay: 2s;"><i class="fas fa-heart"></i></div>
+</div>
+
+<!-- Main Card -->
+<div class="coming-soon-card">
+
+    <!-- Couple Names -->
+    <div class="couple-names">Lisha & Kausik</div>
+    <div class="couple-date">Married on 9th March, 2026</div>
+
+    <!-- Gold Divider -->
+    <div class="gold-divider">
+        <span class="line"></span>
+        <i class="fas fa-heart"></i>
+        <span class="line"></span>
+    </div>
+
+    <!-- Hourglass -->
+    <div class="hourglass-wrap">
+        <i class="fas fa-hourglass-half"></i>
+    </div>
+
+    <!-- Coming Soon Text -->
+    <h1 class="coming-soon-title">Coming <span>Soon</span></h1>
+    <p class="coming-soon-subtitle">Being Prepared with Love</p>
+
+    <!-- Description -->
+    <p class="coming-soon-desc">
+        This section is currently being prepared. Our <strong>wedding memories</strong> will be available here very soon. Please check back later.
+    </p>
+
+    <!-- Back Button -->
+    <a href="index.html" class="btn-back">
+        <i class="fas fa-arrow-left"></i>
+        Back to Main Page
+    </a>
+
+</div>
+
+</body>
+</html>
