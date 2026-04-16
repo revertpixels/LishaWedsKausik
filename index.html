@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lisha & Kausik - Wedding Celebration</title>
+    <link rel="icon" type="image/png" href="icon.png">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:wght@300;400;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&family=Playfair+Display:wght@400;700;900&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- Loading Screen -->
+<div class="loading-screen" id="loadingScreen">
+    <div class="loading-content">
+        <div class="loading-rings">
+            <div class="ring"></div>
+            <div class="ring"></div>
+            <div class="ring"></div>
+        </div>
+        <h2 class="loading-text">Lisha & Kausik</h2>
+        <p class="loading-subtext">Loading our love story...</p>
+    </div>
+</div>
+
+<!-- Navigation -->
+<nav class="navbar" id="navbar">
+    <div class="nav-container">
+        <div class="nav-logo">L & K</div>
+        <ul class="nav-menu" id="navMenu">
+            <li><a href="#home" class="nav-link">Home</a></li>
+            <li><a href="#couple" class="nav-link">Our Story</a></li>
+            <li><a href="#gallery" class="nav-link">Gallery</a></li>
+            <li><a href="#events" class="nav-link">Events</a></li>
+            <li><a href="#download" class="nav-link">Photos</a></li>
+        </ul>
+        <div class="nav-toggle" id="navToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero" id="home">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <div class="hero-text">
+            <p class="hero-subtitle">The Wedding Celebration Of</p>
+            <h1 class="hero-title">
+                <span class="bride-name">Lisha</span>
+                <span class="ampersand">&</span>
+                <span class="groom-name">Kausik</span>
+            </h1>
+            <div class="wedding-date">
+                <i class="fas fa-calendar-heart"></i>
+                <span>9th March, 2026 | Monday</span>
+            </div>
+            <div class="decorative-divider">
+                <span class="divider-line"></span>
+                <i class="fas fa-heart divider-icon"></i>
+                <span class="divider-line"></span>
+            </div>
+        </div>
+
+        <!-- Countdown Timer -->
+        <div class="countdown-container">
+            <h3 class="countdown-title">Counting Down to Forever</h3>
+            <div class="countdown" id="countdown">
+                <div class="countdown-item">
+                    <span class="countdown-number" id="days">0</span>
+                    <span class="countdown-label">Days</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="hours">0</span>
+                    <span class="countdown-label">Hours</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="minutes">0</span>
+                    <span class="countdown-label">Minutes</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="seconds">0</span>
+                    <span class="countdown-label">Seconds</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </div>
+</section>
+
+<!-- Image Carousel Section -->
+<section class="carousel-section" id="gallery">
+    <div class="carousel-container">
+        <h2 class="section-title">Our Beautiful Journey</h2>
+        <div class="carousel-subtitle">
+            <span class="line"></span>
+            <i class="fas fa-heart"></i>
+            <span class="line"></span>
+        </div>
+
+        <div class="carousel">
+            <div class="carousel-wrapper" id="carouselWrapper">
+                <div class="carousel-slide active">
+                    <img src="CR1.jpg" alt="Lisha and Kausik - Photo 1">
+                    <div class="carousel-caption">A Journey Begins</div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="CR2.jpg" alt="Lisha and Kausik - Photo 2">
+                    <div class="carousel-caption">Love Blossoms</div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="CR3.jpg" alt="Lisha and Kausik - Photo 3">
+                    <div class="carousel-caption">Forever Together</div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="CR4.jpg" alt="Lisha and Kausik - Photo 4">
+                    <div class="carousel-caption">Moments of Joy</div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="CR5.jpg" alt="Lisha and Kausik - Photo 5">
+                    <div class="carousel-caption">Eternal Love</div>
+                </div>
+            </div>
+
+            <!-- Carousel Controls -->
+            <button class="carousel-control prev" onclick="moveCarousel(-1)">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="carousel-control next" onclick="moveCarousel(1)">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+
+            <!-- Carousel Indicators -->
+            <div class="carousel-indicators">
+                <span class="indicator active" onclick="currentSlide(0)"></span>
+                <span class="indicator" onclick="currentSlide(1)"></span>
+                <span class="indicator" onclick="currentSlide(2)"></span>
+                <span class="indicator" onclick="currentSlide(3)"></span>
+                <span class="indicator" onclick="currentSlide(4)"></span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Couple Section -->
+<section class="couple-section" id="couple">
+    <div class="container">
+        <h2 class="section-title">Meet The Couple</h2>
+        <div class="section-subtitle">
+            <span class="line"></span>
+            <span class="text">Two Hearts, One Soul</span>
+            <span class="line"></span>
+        </div>
+
+        <div class="couple-container">
+            <!-- Bride -->
+            <div class="couple-card bride-card">
+                <div class="couple-image-wrapper">
+                    <div class="image-frame">
+                        <img src="Lisha.jpg" alt="Lisha Saha" class="couple-image">
+                        <div class="image-overlay"></div>
+                    </div>
+                    <div class="floral-decoration top-left"></div>
+                    <div class="floral-decoration bottom-right"></div>
+                </div>
+                <div class="couple-info">
+                    <h3 class="couple-name-title">The Bride</h3>
+                    <h2 class="couple-name">Lisha Saha</h2>
+                    <div class="name-divider">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <p class="couple-description">
+                        A beautiful soul with grace and elegance, Lisha brings joy and warmth to everyone around her. Her radiant smile lights up every room she enters.
+                    </p>
+                    <div class="couple-social">
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Heart Divider -->
+            <div class="heart-divider">
+                <div class="heart-icon">
+                    <i class="fas fa-heart"></i>
+                </div>
+                <div class="heart-text">Forever</div>
+            </div>
+
+            <!-- Groom -->
+            <div class="couple-card groom-card">
+                <div class="couple-image-wrapper">
+                    <div class="image-frame">
+                        <img src="Kausik.jpg" alt="Kausik Saha" class="couple-image">
+                        <div class="image-overlay"></div>
+                    </div>
+                    <div class="floral-decoration top-left"></div>
+                    <div class="floral-decoration bottom-right"></div>
+                </div>
+                <div class="couple-info">
+                    <h3 class="couple-name-title">The Groom</h3>
+                    <h2 class="couple-name">Kausik Saha</h2>
+                    <div class="name-divider">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <p class="couple-description">
+                        A gentleman with a kind heart and strong character, Kausik is the perfect blend of charm and wisdom. His presence brings peace and happiness.
+                    </p>
+                    <div class="couple-social">
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Love Quote -->
+        <div class="love-quote">
+            <i class="fas fa-quote-left quote-icon"></i>
+            <p class="quote-text">In you, I've found the love of my life and my closest, truest friend</p>
+            <i class="fas fa-quote-right quote-icon"></i>
+        </div>
+    </div>
+</section>
+
+<!-- Wedding Events Section -->
+<section class="events-section" id="events">
+    <div class="container">
+        <h2 class="section-title light">Wedding Events</h2>
+        <div class="section-subtitle light">
+            <span class="line"></span>
+            <span class="text">Join Us In Celebration</span>
+            <span class="line"></span>
+        </div>
+
+        <div class="events-timeline">
+            <!-- Event 1: Haldi Ceremony -->
+            <div class="timeline-item">
+                <div class="timeline-icon">
+                    <i class="fas fa-spa"></i>
+                </div>
+                <div class="timeline-content">
+                    <div class="event-card">
+                        <h3 class="event-title">Haldi Ceremony</h3>
+                        <div class="event-details">
+                            <div class="event-detail">
+                                <i class="fas fa-calendar"></i>
+                                <span>7th March, 2026</span>
+                            </div>
+                            <div class="event-detail">
+                                <i class="fas fa-clock"></i>
+                                <span>10:00 AM - 12:00 PM</span>
+                            </div>
+                            <div class="event-detail">
+                                <i class="fas fa-location-dot"></i>
+                                <span>Venue will be announced soon</span>
+                            </div>
+                        </div>
+                        <p class="event-description">
+                            A traditional ceremony where turmeric paste is applied to the bride and groom for a radiant glow and blessings.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Event 2: Mehendi -->
+            <div class="timeline-item">
+                <div class="timeline-icon">
+                    <i class="fas fa-hand-sparkles"></i>
+                </div>
+                <div class="timeline-content">
+                    <div class="event-card">
+                        <h3 class="event-title">Mehendi Ceremony</h3>
+                        <div class="event-details">
+                            <div class="event-detail">
+                                <i class="fas fa-calendar"></i>
+                                <span>8th March, 2026</span>
+                            </div>
+                            <div class="event-detail">
+                                <i class="fas fa-clock"></i>
+                                <span>4:00 PM - 8:00 PM</span>
+                            </div>
+                            <div class="event-detail">
+                                <i class="fas fa-location-dot"></i>
+                                <span>Venue will be announced soon</span>
+                            </div>
+                        </div>
+                        <p class="event-description">
+                            An evening filled with music, dance, and beautiful henna designs adorning the bride's hands.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Event 3: Wedding Ceremony -->
+            <div class="timeline-item">
+                <div class="timeline-icon special">
+                    <i class="fas fa-rings-wedding"></i>
+                </div>
+                <div class="timeline-content">
+                    <div class="event-card special">
+                        <h3 class="event-title">Wedding Ceremony</h3>
+                        <div class="event-details">
+                            <div class="event-detail">
+                                <i class="fas fa-calendar"></i>
+                                <span>9th March, 2026</span>
+                            </div>
+                            <div class="event-detail">
+                                <i class="fas fa-clock"></i>
+                                <span>7:00 PM - 10:00 PM</span>
+                            </div>
+                            <div class="event-detail">
+                                <i class="fas fa-location-dot"></i>
+                                <span>Venue will be announced soon</span>
+                            </div>
+                        </div>
+                        <p class="event-description">
+                            The sacred union under the holy mandap, where two souls become one in the presence of family and friends.
+                        </p>
+                        <div class="special-badge">
+                            <i class="fas fa-star"></i>
+                            Main Event
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Event 4: Reception -->
+            <div class="timeline-item">
+                <div class="timeline-icon">
+                    <i class="fas fa-champagne-glasses"></i>
+                </div>
+                <div class="timeline-content">
+                    <div class="event-card">
+                        <h3 class="event-title">Reception</h3>
+                        <div class="event-details">
+                            <div class="event-detail">
+                                <i class="fas fa-calendar"></i>
+                                <span>9th March, 2026</span>
+                            </div>
+                            <div class="event-detail">
+                                <i class="fas fa-clock"></i>
+                                <span>10:00 PM onwards</span>
+                            </div>
+                            <div class="event-detail">
+                                <i class="fas fa-location-dot"></i>
+                                <span>Venue will be announced soon</span>
+                            </div>
+                        </div>
+                        <p class="event-description">
+                            Celebrate with us as we begin our new journey together with dinner, dancing, and joyful memories.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Download Section -->
+<section class="download-section" id="download">
+    <div class="container">
+        <h2 class="section-title">Wedding Photos & Videos</h2>
+        <div class="section-subtitle">
+            <span class="line"></span>
+            <span class="text">Capture & Cherish Our Moments</span>
+            <span class="line"></span>
+        </div>
+
+        <div class="download-grid">
+            <!-- Wedding Photos Card -->
+            <div class="download-card">
+                <div class="download-icon photos">
+                    <i class="fas fa-camera-retro"></i>
+                </div>
+                <h3 class="download-card-title">Wedding Photos</h3>
+                <p class="download-card-desc">Beautiful moments captured in high-quality photographs</p>
+                <button class="download-btn" onclick="showPasswordModal('Wedding Photos')">
+                    <i class="fas fa-download"></i>
+                    Access Photos
+                </button>
+            </div>
+
+            <!-- Wedding Videos Card -->
+            <div class="download-card">
+                <div class="download-icon videos">
+                    <i class="fas fa-video"></i>
+                </div>
+                <h3 class="download-card-title">Wedding Videos</h3>
+                <p class="download-card-desc">Relive our special day through cinematic videos</p>
+                <button class="download-btn" onclick="showPasswordModal('Wedding Videos')">
+                    <i class="fas fa-download"></i>
+                    Access Videos
+                </button>
+            </div>
+
+            <!-- Wedding Album Card -->
+            <div class="download-card">
+                <div class="download-icon album">
+                    <i class="fas fa-book-open"></i>
+                </div>
+                <h3 class="download-card-title">Wedding Album</h3>
+                <p class="download-card-desc">Professionally edited album with best moments</p>
+                <button class="download-btn" onclick="showPasswordModal('Wedding Album')">
+                    <i class="fas fa-download"></i>
+                    Access Album
+                </button>
+            </div>
+
+            <!-- All Content Card -->
+            <div class="download-card special">
+                <div class="download-icon all">
+                    <i class="fas fa-folder-open"></i>
+                </div>
+                <h3 class="download-card-title">All Content (Raw)</h3>
+                <p class="download-card-desc">Complete collection in original format from photographer</p>
+                <button class="download-btn" onclick="showPasswordModal('All Content')">
+                    <i class="fas fa-download"></i>
+                    Access All
+                </button>
+            </div>
+        </div>
+
+        <!-- Info Box -->
+        <div class="download-info-box">
+            <div class="info-icon">
+                <i class="fas fa-info-circle"></i>
+            </div>
+            <div class="info-content">
+                <h4>How to Access</h4>
+                <p>Click on any folder above to download the password-protected PDF containing Google Drive links and access information.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Password Modal -->
+<div class="modal-overlay" id="passwordModal">
+    <div class="modal-content password-modal">
+        <button class="modal-close" onclick="closePasswordModal()">
+            <i class="fas fa-times"></i>
+        </button>
+
+        <div class="modal-header">
+            <i class="fas fa-lock-keyhole modal-icon"></i>
+            <h3 class="modal-title" id="modalTitle">Password Protected Content</h3>
+        </div>
+
+        <div class="modal-body">
+            <div class="alert-box">
+                <i class="fas fa-info-circle"></i>
+                <p>This PDF is password protected to ensure privacy and security of our wedding memories.</p>
+            </div>
+
+            <div class="password-instructions">
+                <h4><i class="fas fa-key"></i> How to Get the Password:</h4>
+                <ol>
+                    <li>Send an email requesting the password</li>
+                    <li>Include your name and relation to the couple</li>
+                    <li>You'll receive the password within 24 hours</li>
+                </ol>
+            </div>
+
+            <div class="contact-info">
+                <p class="contact-label">Contact for Password:</p>
+                <div class="email-box">
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:work.haranath@gmail.com">work.haranath@gmail.com</a>
+                </div>
+                <p class="contact-person">Haranath Saha</p>
+            </div>
+
+            <div class="modal-actions">
+                <a href="mailto:work.haranath@gmail.com?subject=Password Request for Lisha & Kausik Wedding PDF&body=Hello Haranath,%0D%0A%0D%0AI would like to request the password for the wedding PDF.%0D%0A%0D%0AMy Name: %0D%0ARelation to couple: %0D%0A%0D%0AThank you!"
+                   class="btn btn-primary">
+                    <i class="fas fa-paper-plane"></i>
+                    Request Password via Email
+                </a>
+                <button class="btn btn-secondary" onclick="proceedToDownload()">
+                    <i class="fas fa-download"></i>
+                    I Have the Password
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Thank You Modal -->
+<div class="modal-overlay" id="thankYouModal">
+    <div class="modal-content thank-you-modal">
+        <button class="modal-close" onclick="closeThankYouModal()">
+            <i class="fas fa-times"></i>
+        </button>
+
+        <div class="modal-header">
+            <i class="fas fa-heart modal-icon animated-heart"></i>
+            <h3 class="modal-title">Thank You!</h3>
+        </div>
+
+        <div class="modal-body">
+            <p class="thank-you-message">
+                Your download will begin shortly. Please use the password provided by Haranath Saha to open the PDF.
+            </p>
+
+            <div class="download-tips">
+                <h4><i class="fas fa-lightbulb"></i> Quick Tips:</h4>
+                <ul>
+                    <li>The PDF contains Google Drive links to all photos and videos</li>
+                    <li>You can view and download any content from the drive</li>
+                    <li>High-quality originals are available</li>
+                    <li>Feel free to share with family and friends</li>
+                </ul>
+            </div>
+
+            <div class="reminder-box">
+                <i class="fas fa-exclamation-circle"></i>
+                <p>If you haven't received the password yet, please contact:</p>
+                <a href="mailto:work.haranath@gmail.com">work.haranath@gmail.com</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-main">
+                <h3 class="footer-title">Lisha & Kausik</h3>
+                <p class="footer-subtitle">9th March, 2026</p>
+                <div class="footer-divider">
+                    <span class="line"></span>
+                    <i class="fas fa-heart"></i>
+                    <span class="line"></span>
+                </div>
+                <p class="footer-quote">
+                    "Two souls with but a single thought, two hearts that beat as one"
+                </p>
+            </div>
+
+            <div class="footer-bottom">
+                <p class="footer-copyright">
+                    Made with <i class="fas fa-heart"></i> by
+                    <a href="https://www.instagram.com/haranath_saha/" target="_blank" rel="noopener">
+                        <b>Haranath Saha</b>
+                    </a>
+                </p>
+                <p class="footer-year">&copy; 2026 All Rights Reserved</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Scroll to Top Button -->
+<button class="scroll-to-top" id="scrollToTop">
+    <i class="fas fa-arrow-up"></i>
+</button>
+
+<!-- Floating Elements -->
+<div class="floating-elements">
+    <div class="floating-heart" style="left: 10%; animation-delay: 0s;"><i class="fas fa-heart"></i></div>
+    <div class="floating-heart" style="left: 20%; animation-delay: 2s;"><i class="fas fa-heart"></i></div>
+    <div class="floating-heart" style="left: 80%; animation-delay: 4s;"><i class="fas fa-heart"></i></div>
+    <div class="floating-heart" style="left: 90%; animation-delay: 6s;"><i class="fas fa-heart"></i></div>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
