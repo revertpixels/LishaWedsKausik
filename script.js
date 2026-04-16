@@ -167,6 +167,19 @@ function openViewModal(title, driveUrl, photosUrl) {
     driveLink.href = driveUrl;
     photosLink.href = photosUrl;
 
+    // If link is comingsoon page open in same tab, else open in new tab
+    if (driveUrl === 'comingsoon.html') {
+        driveLink.removeAttribute('target');
+    } else {
+        driveLink.setAttribute('target', '_blank');
+    }
+
+    if (photosUrl === 'comingsoon.html') {
+        photosLink.removeAttribute('target');
+    } else {
+        photosLink.setAttribute('target', '_blank');
+    }
+
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
 }
