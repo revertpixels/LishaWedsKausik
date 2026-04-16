@@ -249,13 +249,6 @@ button { border: none; outline: none; cursor: pointer; font-family: inherit; }
     background-attachment: fixed;
 }
 
-@media screen and (max-width: 768px) {
-    .hero {
-        background: url('PROTRAIT-COVER.jpg') center/cover no-repeat;
-        background-attachment: scroll;
-    }
-}
-
 .hero-overlay {
     position: absolute;
     top: 0; left: 0;
@@ -373,13 +366,6 @@ button { border: none; outline: none; cursor: pointer; font-family: inherit; }
     font-size: 1.8rem;
     color: var(--primary-gold);
     animation: bounce 2s infinite;
-}
-
-@media screen and (max-width: 768px) {
-    .scroll-indicator {
-        bottom: 5px;
-        font-size: 1.3rem;
-    }
 }
 
 @keyframes bounce {
@@ -909,7 +895,6 @@ button { border: none; outline: none; cursor: pointer; font-family: inherit; }
 }
 
 .modal-icon { font-size: 3rem; color: var(--white); margin-bottom: 12px; }
-
 .modal-title { font-family: var(--font-heading); font-size: 1.9rem; color: var(--dark-brown); margin: 0; }
 
 .pdf-modal-header {
@@ -939,7 +924,6 @@ button { border: none; outline: none; cursor: pointer; font-family: inherit; }
 }
 
 .modal-body { padding: 30px 35px 35px; }
-
 .modal-description { text-align: center; font-size: 1.05rem; color: var(--grey); margin-bottom: 25px; }
 
 .view-options { display: flex; flex-direction: column; gap: 15px; }
@@ -1138,15 +1122,18 @@ button { border: none; outline: none; cursor: pointer; font-family: inherit; }
         box-shadow: 0 6px 20px rgba(212, 175, 55, 0.6);
     }
 
-    /* Keep special link in mobile menu but re-style for dark background */
+    /* Keep special link in mobile menu highlighted */
     .nav-menu .nav-link-special {
         display: inline-flex !important;
         background: var(--gradient-gold) !important;
         color: var(--dark-brown) !important;
-        padding: 12px 30px !important;
+        padding: 12px 22px !important;
         border-radius: 50px !important;
         gap: 10px !important;
         box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4) !important;
+        width: fit-content;
+        align-self: center;
+        max-width: 85%;
     }
 
     .nav-menu .nav-link-special span {
@@ -1162,12 +1149,14 @@ button { border: none; outline: none; cursor: pointer; font-family: inherit; }
     /* Nav menu */
     .nav-menu {
         position: fixed;
-        top: 0; right: -100%;
+        top: 0;
+        right: -100%;
         width: 72%;
         height: 100vh;
         background: rgba(20, 5, 5, 0.98);
         flex-direction: column;
         justify-content: center;
+        align-items: center;
         gap: 30px;
         transition: right 0.4s ease;
         box-shadow: -5px 0 30px rgba(0,0,0,0.5);
@@ -1180,7 +1169,11 @@ button { border: none; outline: none; cursor: pointer; font-family: inherit; }
     .nav-container { padding: 0 20px; }
 
     /* Hero */
-    .hero { background-attachment: scroll; }
+    .hero {
+        background: url('PROTRAIT-COVER.jpg') center/cover no-repeat;
+        background-attachment: scroll;
+    }
+
     .hero-content { padding: 20px 15px; }
     .hero-subtitle { font-size: 0.85rem; letter-spacing: 2px; }
     .hero-title { font-size: 3.5rem; }
@@ -1188,6 +1181,8 @@ button { border: none; outline: none; cursor: pointer; font-family: inherit; }
     .wedding-date { font-size: 0.95rem; }
     .married-badge { font-size: 0.78rem; padding: 10px 22px; letter-spacing: 2px; }
     .divider-line { width: 50px; }
+
+    .scroll-indicator { bottom: 10px; font-size: 1.3rem; }
 
     .section-title { font-size: 2.5rem; }
     .section-subtitle .text { font-size: 0.9rem; }
