@@ -189,7 +189,7 @@ function closePdfModal() {
 
 function startPdfDownload() {
     var link = document.createElement('a');
-    link.href = 'account-info.pdf';
+    link.href = 'wedding-info.pdf';
     link.download = 'Lisha-Kausik-Wedding-Account-Info.pdf';
     document.body.appendChild(link);
     link.click();

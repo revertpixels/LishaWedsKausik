@@ -35,7 +35,13 @@
                 </a>
             </li>
         </ul>
+
         <div class="nav-right">
+            <!-- Gallery icon - mobile only -->
+            <a href="#media" class="nav-mobile-icon-btn" title="Photos & Videos">
+                <i class="fas fa-images"></i>
+            </a>
+            <!-- Key icon -->
             <button class="account-info-btn" onclick="downloadAccountPDF()" title="Account Info PDF">
                 <i class="fas fa-unlock-keyhole"></i>
             </button>
@@ -204,7 +210,7 @@
     </div>
 </section>
 
-<!-- Media Section - Photos & Videos -->
+<!-- Media Section -->
 <section class="media-section" id="media">
     <div class="container">
         <h2 class="section-title">Wedding Photos & Videos</h2>
@@ -301,15 +307,12 @@
         <button class="modal-close" onclick="closeViewModal()">
             <i class="fas fa-times"></i>
         </button>
-
         <div class="modal-header">
             <i class="fas fa-folder-open modal-icon"></i>
             <h3 class="modal-title" id="viewModalTitle">View Content</h3>
         </div>
-
         <div class="modal-body">
             <p class="modal-description">Choose how you'd like to view the content:</p>
-
             <div class="view-options">
                 <a href="#" id="driveLink" target="_blank" class="view-option-btn drive-btn">
                     <div class="view-option-icon">
@@ -321,7 +324,6 @@
                     </div>
                     <i class="fas fa-external-link-alt"></i>
                 </a>
-
                 <a href="#" id="photosLink" target="_blank" class="view-option-btn photos-btn">
                     <div class="view-option-icon">
                         <i class="fas fa-images"></i>
@@ -343,7 +345,6 @@
         <button class="modal-close" onclick="closePdfModal()">
             <i class="fas fa-times"></i>
         </button>
-
         <div class="modal-header pdf-modal-header">
             <div class="pdf-modal-icon-wrap">
                 <i class="fas fa-unlock-keyhole"></i>
@@ -351,7 +352,6 @@
             <h3 class="modal-title">Account Info PDF</h3>
             <p class="modal-header-sub">Google account credentials for wedding media access</p>
         </div>
-
         <div class="modal-body">
             <div class="pdf-warning">
                 <i class="fas fa-lock"></i>
@@ -360,7 +360,6 @@
                     for the password.
                 </p>
             </div>
-
             <div class="pdf-actions">
                 <button class="btn btn-primary" onclick="startPdfDownload()">
                     <i class="fas fa-download"></i>
@@ -392,7 +391,6 @@
                     "Two souls with but a single thought, two hearts that beat as one"
                 </p>
             </div>
-
             <div class="footer-bottom">
                 <p class="footer-copyright">
                     Made with <i class="fas fa-heart"></i> by
@@ -406,7 +404,7 @@
     </div>
 </footer>
 
-<!-- Scroll to Top Button -->
+<!-- Scroll to Top -->
 <button class="scroll-to-top" id="scrollToTop">
     <i class="fas fa-arrow-up"></i>
 </button>
@@ -420,6 +418,5 @@
 </div>
 
 <script src="script.js"></script>
-
 </body>
 </html>
