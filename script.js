@@ -44,9 +44,12 @@ document.querySelectorAll('.nav-link').forEach(function(link) {
     });
 });
 
-// Smooth scroll
+// Smooth scroll - skip modal links
 document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
     anchor.addEventListener('click', function(e) {
+        if (this.id === 'driveLink' || this.id === 'photosLink') {
+            return;
+        }
         e.preventDefault();
         var target = document.querySelector(this.getAttribute('href'));
         if (target) {
@@ -92,7 +95,7 @@ function goToSlide(index) {
 function startAutoSlide() {
     autoSlideInterval = setInterval(function() {
         showSlide(currentSlideIndex + 1);
-    }, 1500);
+    }, 4000);
 }
 
 function resetAutoSlide() {
@@ -102,7 +105,6 @@ function resetAutoSlide() {
 
 startAutoSlide();
 
-// Pause on hover (desktop)
 var carousel = document.querySelector('.carousel');
 if (carousel) {
     carousel.addEventListener('mouseenter', function() {
@@ -113,13 +115,11 @@ if (carousel) {
     });
 }
 
-// Keyboard navigation
 document.addEventListener('keydown', function(e) {
     if (e.key === 'ArrowLeft') { moveCarousel(-1); }
     else if (e.key === 'ArrowRight') { moveCarousel(1); }
 });
 
-// ==================== TOUCH / TAP SUPPORT ====================
 var touchStartX = 0;
 var touchEndX = 0;
 var touchStartY = 0;
@@ -138,17 +138,10 @@ if (carousel) {
         var diffX = touchStartX - touchEndX;
         var diffY = touchStartY - touchEndY;
 
-        // Only trigger if horizontal swipe is more than vertical
         if (Math.abs(diffX) > Math.abs(diffY)) {
-            if (diffX > 40) {
-                // Swipe left - go next
-                moveCarousel(1);
-            } else if (diffX < -40) {
-                // Swipe right - go previous
-                moveCarousel(-1);
-            }
+            if (diffX > 40) { moveCarousel(1); }
+            else if (diffX < -40) { moveCarousel(-1); }
         } else {
-            // It was a tap (not a swipe) - go to next slide
             if (Math.abs(diffX) < 10 && Math.abs(diffY) < 10) {
                 moveCarousel(1);
             }
@@ -157,31 +150,41 @@ if (carousel) {
 }
 
 // ==================== VIEW MODAL ====================
+var currentDriveUrl = '';
+var currentPhotosUrl = '';
+
 function openViewModal(title, driveUrl, photosUrl) {
     var modal = document.getElementById('viewModal');
     var modalTitle = document.getElementById('viewModalTitle');
-    var driveLink = document.getElementById('driveLink');
-    var photosLink = document.getElementById('photosLink');
 
     modalTitle.textContent = title;
-    driveLink.href = driveUrl;
-    photosLink.href = photosUrl;
-
-    // If link is comingsoon page open in same tab, else open in new tab
-    if (driveUrl === 'comingsoon.html') {
-        driveLink.removeAttribute('target');
-    } else {
-        driveLink.setAttribute('target', '_blank');
-    }
-
-    if (photosUrl === 'comingsoon.html') {
-        photosLink.removeAttribute('target');
-    } else {
-        photosLink.setAttribute('target', '_blank');
-    }
+    currentDriveUrl = driveUrl;
+    currentPhotosUrl = photosUrl;
 
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
+}
+
+function handleLinkClick(type) {
+    var url = '';
+
+    if (type === 'drive') {
+        url = currentDriveUrl;
+    } else if (type === 'photos') {
+        url = currentPhotosUrl;
+    }
+
+    // Close modal first
+    closeViewModal();
+
+    // Navigate after small delay
+    setTimeout(function() {
+        if (url === 'comingsoon.html') {
+            window.location.href = url;
+        } else {
+            window.open(url, '_blank');
+        }
+    }, 300);
 }
 
 function closeViewModal() {
@@ -213,7 +216,7 @@ function startPdfDownload() {
     }, 2000);
 }
 
-// Close modals on outside click
+// ==================== CLOSE MODALS ====================
 window.addEventListener('click', function(event) {
     var viewModal = document.getElementById('viewModal');
     var pdfModal = document.getElementById('pdfModal');
@@ -221,7 +224,6 @@ window.addEventListener('click', function(event) {
     if (event.target === pdfModal) { closePdfModal(); }
 });
 
-// Close modals on Escape
 document.addEventListener('keydown', function(event) {
     if (event.key === 'Escape') {
         closeViewModal();

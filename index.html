@@ -37,11 +37,9 @@
         </ul>
 
         <div class="nav-right">
-            <!-- Gallery icon - mobile only -->
             <a href="#media" class="nav-mobile-icon-btn" title="Photos & Videos">
                 <i class="fas fa-images"></i>
             </a>
-            <!-- Key icon -->
             <button class="account-info-btn" onclick="downloadAccountPDF()" title="Account Info PDF">
                 <i class="fas fa-unlock-keyhole"></i>
             </button>
@@ -80,7 +78,6 @@
                 <span class="divider-line"></span>
             </div>
         </div>
-
         <div class="scroll-indicator">
             <i class="fas fa-chevron-down"></i>
         </div>
@@ -96,7 +93,6 @@
             <i class="fas fa-heart"></i>
             <span class="line"></span>
         </div>
-
         <div class="carousel">
             <div class="carousel-wrapper" id="carouselWrapper">
                 <div class="carousel-slide active">
@@ -120,16 +116,12 @@
                     <div class="carousel-caption">Eternal Love</div>
                 </div>
             </div>
-
-            <!-- Carousel Controls -->
             <button class="carousel-control prev" onclick="moveCarousel(-1)">
                 <i class="fas fa-chevron-left"></i>
             </button>
             <button class="carousel-control next" onclick="moveCarousel(1)">
                 <i class="fas fa-chevron-right"></i>
             </button>
-
-            <!-- Carousel Indicators -->
             <div class="carousel-indicators">
                 <span class="indicator active" onclick="goToSlide(0)"></span>
                 <span class="indicator" onclick="goToSlide(1)"></span>
@@ -150,9 +142,7 @@
             <span class="text">Two Hearts, One Soul</span>
             <span class="line"></span>
         </div>
-
         <div class="couple-container">
-            <!-- Bride -->
             <div class="couple-card bride-card">
                 <div class="couple-image-wrapper">
                     <div class="image-frame">
@@ -171,16 +161,12 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Heart Divider -->
             <div class="heart-divider">
                 <div class="heart-icon">
                     <i class="fas fa-heart"></i>
                 </div>
                 <div class="heart-text">Forever</div>
             </div>
-
-            <!-- Groom -->
             <div class="couple-card groom-card">
                 <div class="couple-image-wrapper">
                     <div class="image-frame">
@@ -200,8 +186,6 @@
                 </div>
             </div>
         </div>
-
-        <!-- Love Quote -->
         <div class="love-quote">
             <i class="fas fa-quote-left quote-icon"></i>
             <p class="quote-text">In you, I've found the love of my life and my closest, truest friend</p>
@@ -219,10 +203,7 @@
             <span class="text">Relive Our Beautiful Moments</span>
             <span class="line"></span>
         </div>
-
         <div class="media-grid">
-
-            <!-- Wedding Photos -->
             <div class="media-card" onclick="openViewModal(
                 'Wedding Photos',
                 'https://drive.google.com/drive/folders/19bIi_OL7jxqkGYAzJNeWj2F2jn022PUm?usp=drive_link',
@@ -236,8 +217,6 @@
                     <i class="fas fa-arrow-right"></i>
                 </div>
             </div>
-
-            <!-- Wedding Videos -->
             <div class="media-card" onclick="openViewModal(
                 'Wedding Videos',
                 'comingsoon.html',
@@ -251,8 +230,6 @@
                     <i class="fas fa-arrow-right"></i>
                 </div>
             </div>
-
-            <!-- Wedding Album -->
             <div class="media-card" onclick="openViewModal(
                 'Wedding Album',
                 'comingsoon.html',
@@ -266,8 +243,6 @@
                     <i class="fas fa-arrow-right"></i>
                 </div>
             </div>
-
-            <!-- All in Google Drive -->
             <div class="media-card" onclick="openViewModal(
                 'All in Google Drive',
                 'comingsoon.html',
@@ -281,8 +256,6 @@
                     <i class="fas fa-arrow-right"></i>
                 </div>
             </div>
-
-            <!-- Mobile Clicks -->
             <div class="media-card" onclick="openViewModal(
                 'Mobile Clicks',
                 'comingsoon.html',
@@ -296,10 +269,7 @@
                     <i class="fas fa-arrow-right"></i>
                 </div>
             </div>
-
         </div>
-
-        <!-- Account Info Download -->
         <div class="account-info-section">
             <div class="account-info-card">
                 <div class="account-info-left">
@@ -331,7 +301,7 @@
         <div class="modal-body">
             <p class="modal-description">Choose how you'd like to view the content:</p>
             <div class="view-options">
-                <a href="#" id="driveLink" target="_blank" class="view-option-btn drive-btn">
+                <div class="view-option-btn drive-btn" id="driveBtnWrap" onclick="handleLinkClick('drive')">
                     <div class="view-option-icon">
                         <i class="fab fa-google-drive"></i>
                     </div>
@@ -340,8 +310,8 @@
                         <p>Browse and download individual files</p>
                     </div>
                     <i class="fas fa-external-link-alt"></i>
-                </a>
-                <a href="#" id="photosLink" target="_blank" class="view-option-btn photos-btn">
+                </div>
+                <div class="view-option-btn photos-btn" id="photosBtnWrap" onclick="handleLinkClick('photos')">
                     <div class="view-option-icon">
                         <i class="fas fa-images"></i>
                     </div>
@@ -350,7 +320,7 @@
                         <p>Slideshow and easy sharing</p>
                     </div>
                     <i class="fas fa-external-link-alt"></i>
-                </a>
+                </div>
             </div>
         </div>
     </div>
@@ -421,12 +391,10 @@
     </div>
 </footer>
 
-<!-- Scroll to Top -->
 <button class="scroll-to-top" id="scrollToTop">
     <i class="fas fa-arrow-up"></i>
 </button>
 
-<!-- Floating Elements -->
 <div class="floating-elements">
     <div class="floating-heart" style="left: 10%; animation-delay: 0s;"><i class="fas fa-heart"></i></div>
     <div class="floating-heart" style="left: 20%; animation-delay: 2s;"><i class="fas fa-heart"></i></div>
