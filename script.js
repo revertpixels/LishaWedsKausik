@@ -4,6 +4,85 @@
  * Created by: Haranath Saha
  */
 
+// ==================== LOADING SCREEN ====================
+(function() {
+    var loadingScreen = document.getElementById('loadingScreen');
+    var body = document.body;
+
+    // Get the cover image URL based on screen size
+    var coverImageUrl = '';
+    if (window.innerWidth <= 768) {
+        coverImageUrl = 'PROTRAIT-COVER.jpg';
+    } else {
+        coverImageUrl = 'LKcover.jpg';
+    }
+
+    // Create a new image to preload the cover photo
+    var coverImage = new Image();
+    var imageLoaded = false;
+    var minimumTimePassed = false;
+
+    // Minimum loading time (1.5 seconds) so animation is visible
+    var minimumTimer = setTimeout(function() {
+        minimumTimePassed = true;
+        if (imageLoaded) {
+            hideLoadingScreen();
+        }
+    }, 1500);
+
+    // When cover image loads
+    coverImage.onload = function() {
+        imageLoaded = true;
+        if (minimumTimePassed) {
+            hideLoadingScreen();
+        }
+    };
+
+    // If image fails to load, still hide after timeout
+    coverImage.onerror = function() {
+        imageLoaded = true;
+        if (minimumTimePassed) {
+            hideLoadingScreen();
+        }
+    };
+
+    // Start loading the cover image
+    coverImage.src = coverImageUrl;
+
+    // Safety fallback - hide loading screen after 8 seconds no matter what
+    var safetyTimer = setTimeout(function() {
+        hideLoadingScreen();
+    }, 8000);
+
+    function hideLoadingScreen() {
+        // Clear safety timer
+        clearTimeout(safetyTimer);
+
+        // Add hidden class for fade out animation
+        if (loadingScreen) {
+            loadingScreen.classList.add('hidden');
+
+            // Remove loading class from body to allow scrolling
+            body.classList.remove('loading');
+
+            // Remove loading screen from DOM after animation
+            setTimeout(function() {
+                if (loadingScreen && loadingScreen.parentNode) {
+                    loadingScreen.parentNode.removeChild(loadingScreen);
+                }
+            }, 700);
+        }
+    }
+
+    // Also listen for full page load as backup
+    window.addEventListener('load', function() {
+        imageLoaded = true;
+        if (minimumTimePassed) {
+            hideLoadingScreen();
+        }
+    });
+})();
+
 // ==================== NAVIGATION ====================
 var navbar = document.getElementById('navbar');
 var navToggle = document.getElementById('navToggle');
@@ -95,7 +174,7 @@ function goToSlide(index) {
 function startAutoSlide() {
     autoSlideInterval = setInterval(function() {
         showSlide(currentSlideIndex + 1);
-    }, 4000);
+    }, 1500);
 }
 
 function resetAutoSlide() {
