@@ -44,17 +44,17 @@ document.querySelectorAll('.nav-link').forEach(function(link) {
     });
 });
 
-// Smooth scroll - skip modal links
+// Smooth scroll
 document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
     anchor.addEventListener('click', function(e) {
-        if (this.id === 'driveLink' || this.id === 'photosLink') {
-            return;
-        }
         e.preventDefault();
-        var target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            var offsetTop = target.offsetTop - 80;
-            window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+        var targetId = this.getAttribute('href');
+        if (targetId && targetId !== '#') {
+            var target = document.querySelector(targetId);
+            if (target) {
+                var offsetTop = target.offsetTop - 80;
+                window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+            }
         }
     });
 });
@@ -174,10 +174,8 @@ function handleLinkClick(type) {
         url = currentPhotosUrl;
     }
 
-    // Close modal first
     closeViewModal();
 
-    // Navigate after small delay
     setTimeout(function() {
         if (url === 'comingsoon.html') {
             window.location.href = url;
@@ -216,6 +214,19 @@ function startPdfDownload() {
     }, 2000);
 }
 
+// Email request function
+function requestPasswordEmail() {
+    var subject = encodeURIComponent('PDF Password Request - Lisha & Kausik Wedding');
+    var body = encodeURIComponent('Hello Haranath,\n\nI would like the password for the wedding account info PDF.\n\nMy Name: \nRelation to couple: \n\nThank you!');
+    var mailtoUrl = 'mailto:work.haranath@gmail.com?subject=' + subject + '&body=' + body;
+
+    closePdfModal();
+
+    setTimeout(function() {
+        window.location.href = mailtoUrl;
+    }, 300);
+}
+
 // ==================== CLOSE MODALS ====================
 window.addEventListener('click', function(event) {
     var viewModal = document.getElementById('viewModal');
@@ -249,7 +260,7 @@ window.addEventListener('scroll', function() {
 });
 
 // ==================== CONSOLE ====================
-console.log('%c👰🤵 Lisha & Kausik Wedding Website', 'font-size: 20px; font-weight: bold; color: #D4AF37;');
-console.log('%cDeveloped with ❤️ by Haranath Saha', 'font-size: 14px; color: #8B0000;');
+console.log('%c Lisha & Kausik Wedding Website', 'font-size: 20px; font-weight: bold; color: #D4AF37;');
+console.log('%cDeveloped with love by Haranath Saha', 'font-size: 14px; color: #8B0000;');
 
 // ==================== END OF SCRIPT ====================

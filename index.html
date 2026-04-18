@@ -301,7 +301,7 @@
         <div class="modal-body">
             <p class="modal-description">Choose how you'd like to view the content:</p>
             <div class="view-options">
-                <div class="view-option-btn drive-btn" id="driveBtnWrap" onclick="handleLinkClick('drive')">
+                <div class="view-option-btn drive-btn" onclick="handleLinkClick('drive')">
                     <div class="view-option-icon">
                         <i class="fab fa-google-drive"></i>
                     </div>
@@ -311,7 +311,7 @@
                     </div>
                     <i class="fas fa-external-link-alt"></i>
                 </div>
-                <div class="view-option-btn photos-btn" id="photosBtnWrap" onclick="handleLinkClick('photos')">
+                <div class="view-option-btn photos-btn" onclick="handleLinkClick('photos')">
                     <div class="view-option-icon">
                         <i class="fas fa-images"></i>
                     </div>
@@ -352,11 +352,10 @@
                     <i class="fas fa-download"></i>
                     Download PDF
                 </button>
-                <a href="mailto:work.haranath@gmail.com?subject=PDF Password Request - Lisha & Kausik Wedding&body=Hello Haranath,%0D%0A%0D%0AI would like the password for the wedding account info PDF.%0D%0A%0D%0AMy Name: %0D%0ARelation to couple: %0D%0A%0D%0AThank you!"
-                   class="btn btn-secondary">
+                <button class="btn btn-secondary" onclick="requestPasswordEmail()">
                     <i class="fas fa-envelope"></i>
                     Request Password via Email
-                </a>
+                </button>
             </div>
         </div>
     </div>
